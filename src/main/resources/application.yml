@@ -27,6 +27,7 @@ security:
   cookie:
     secure: ${COOKIE_SECURE:false}
     same-site: ${COOKIE_SAME_SITE:Lax}
+    refresh-token-ttl: PT168H
 
 server:
   port: ${PORT:8080}
