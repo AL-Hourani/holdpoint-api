@@ -13,7 +13,7 @@ spring:
     hibernate:
       ddl-auto: validate
     open-in-view: false
-    show-sql: true
+    show-sql: false
 
   flyway:
     enabled: true
@@ -23,10 +23,13 @@ security:
     secret: ${HOLDPOINT_JWT_SECRET}
     access-token-ttl: PT15M
     refresh-token-ttl: P30D
+
   cookie:
-    secure: false
-    same-site: Lax
-    refresh-token-ttl: PT168H
+    secure: ${COOKIE_SECURE:false}
+    same-site: ${COOKIE_SAME_SITE:Lax}
 
 server:
-  port: 8080
+  port: ${PORT:8080}
+
+
+
