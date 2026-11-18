@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: holdpoint-postgres
+  
+    environment:
+      POSTGRES_DB: holdpoint
+      POSTGRES_USER: holdpoint_user
+      POSTGRES_PASSWORD: dev_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - holdpoint_data:/var/lib/postgresql
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U holdpoint_user -d holdpoint"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+
+volumes:
+  holdpoint_data:

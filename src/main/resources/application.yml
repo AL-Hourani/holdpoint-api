@@ -1,0 +1,32 @@
+
+spring:
+  application:
+    name: holdpoint
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/holdpoint}
+    username: ${DB_USERNAME:holdpoint_user}
+    password: ${DB_PASSWORD:dev_password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: true
+
+  flyway:
+    enabled: true
+
+security:
+  jwt:
+    secret: ${HOLDPOINT_JWT_SECRET}
+    access-token-ttl: PT15M
+    refresh-token-ttl: P30D
+  cookie:
+    secure: false
+    same-site: Lax
+    refresh-token-ttl: PT168H
+
+server:
+  port: 8080

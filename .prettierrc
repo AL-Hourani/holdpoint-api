@@ -1,0 +1,9 @@
+{
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "checkIgnorePragma": true,
+  "objectWrap": "preserve",
+  "semi": true,
+  "trailingComma": "all"
+}
